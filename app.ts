@@ -3,7 +3,17 @@ const number2 = document.getElementById("num2") as HTMLInputElement;
 const button = document.querySelector("button")!; // Tell typescript that wont be null
 const numberArray: number[] = [];
 const stringArray: string[] = [];
-const add = (number1: number | string, number2: number | String) => {
+
+// Types and inference // Primitives is created just by types , Generally in Objects types and interface differ
+type NumorString = string | number;
+
+type resObj = { value: number; timestamp: Date };
+// interface resObj {
+//   value: number;
+//   timestamp: Date;
+// }
+
+const add = (number1: NumorString, number2: NumorString) => {
   if (typeof number1 === "number" && typeof number2 === "number") {
     return number1 + number2;
   }
@@ -13,7 +23,7 @@ const add = (number1: number | string, number2: number | String) => {
   return +number1 + +number2;
 };
 
-function printout(resultObj: { value: number; timestamp: Date }) {
+function printout(resultObj: resObj) {
   console.log([resultObj.value, resultObj.timestamp]);
 }
 
