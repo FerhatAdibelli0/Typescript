@@ -1,7 +1,8 @@
 const number1 = document.getElementById("num1") as HTMLInputElement;
 const number2 = document.getElementById("num2") as HTMLInputElement;
 const button = document.querySelector("button")!; // Tell typescript that wont be null
-const numberArray: number[] = [];
+// const numberArray: number[] = [];
+const numberArray: Array<number> = []; // Generic
 const stringArray: string[] = [];
 
 // Types and inference // Primitives is created just by types , Generally in Objects types and interface differ
@@ -46,4 +47,14 @@ button.addEventListener("click", () => {
   printout({ value: numberResult, timestamp: new Date() });
   console.log(numberArray);
   console.log(stringArray);
+});
+
+const newPromise = new Promise<string>((resolve, reject) => {
+  setTimeout(() => {
+    resolve("It works");
+  }, 2000);
+});
+
+newPromise.then((resolved) => {
+  console.log(resolved.split(" "));
 });

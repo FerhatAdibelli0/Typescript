@@ -2,8 +2,13 @@
 const number1 = document.getElementById("num1");
 const number2 = document.getElementById("num2");
 const button = document.querySelector("button"); // Tell typescript that wont be null
-const numberArray = [];
+// const numberArray: number[] = [];
+const numberArray = []; // Generic
 const stringArray = [];
+// interface resObj {
+//   value: number;
+//   timestamp: Date;
+// }
 const add = (number1, number2) => {
     if (typeof number1 === "number" && typeof number2 === "number") {
         return number1 + number2;
@@ -34,4 +39,12 @@ button.addEventListener("click", () => {
     printout({ value: numberResult, timestamp: new Date() });
     console.log(numberArray);
     console.log(stringArray);
+});
+const newPromise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve("It works");
+    }, 2000);
+});
+newPromise.then((resolved) => {
+    console.log(resolved.split(" "));
 });
